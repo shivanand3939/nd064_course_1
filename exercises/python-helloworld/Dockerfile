@@ -2,7 +2,7 @@ FROM python:3.8-buster
 
 COPY . /app
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN pip install -r ./exercises/python-helloworld/requirements.txt
 
 
-CMD ["python", "app.py"]
+CMD ["python", "./exercises/python-helloworld/app.py"]
