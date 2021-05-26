@@ -1,3 +1,3 @@
 Udacity TechTrends Project
 
-- Test github action
+- Test github actions
