@@ -1,11 +1,42 @@
-## Docker commands used to build the application 
-# TODO: insert the docker build command
+## Docker commands used to build the application
+sudo docker build -t techtrends -f Dockerfile  .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+sudo docker run -d  -p 7111:3111 techtrends
+
+##docker containers
+(python2.7) vivetes@vivetes:~/Documents/beyond_infinity/CloudNativeApps/nd064_course_1/project$ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                       PORTS                    NAMES
+3468c11a09a4        techtrends          "python app.py"          13 seconds ago      Up 3 seconds                 0.0.0.0:7111->3111/tcp   admiring_carson
+
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+sudo docker logs 3468c11a09a4
+
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+(python2.7) vivetes@vivetes:~/Documents/beyond_infinity/CloudNativeApps/nd064_course_1/project$ sudo docker logs 3468c11a09a4
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:52:49] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:52:49] "GET /static/css/main.css HTTP/1.1" 200 -
+ERROR:app:2021/05/26 13:52  Invalid URL
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:52:49] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:53:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:53:01] "GET /static/css/main.css HTTP/1.1" 200 -
+ERROR:app:2021/05/26 13:53  Invalid URL
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:53:01] "GET /favicon.ico HTTP/1.1" 404 -
+DEBUG:app:2021/05/26 13:53 Article 2020 CNCF Annual Report retrieved
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:53:17] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:53:22] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:55:39] "GET / HTTP/1.1" 200 -
+DEBUG:app:2021/05/26 13:55 Article KubeCon + CloudNativeCon 2021 retrieved
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:55:51] "GET /2 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:56:02] "GET /create HTTP/1.1" 200 -
+DEBUG:app:2021/05/26 13:56 new is created
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:56:10] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:172.17.0.1 - - [26/May/2021 13:56:10] "GET / HTTP/1.1" 200 -
