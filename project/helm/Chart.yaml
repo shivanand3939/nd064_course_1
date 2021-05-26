@@ -1,0 +1,10 @@
+apiVersion: v1
+name: techtrends
+description: Install techtrends
+keywords:
+- techtrends
+- udacity
+version: 1.0.0
+maintainers:
+- name: shivanand3939
+  email: shivanand3939@gmail.com
