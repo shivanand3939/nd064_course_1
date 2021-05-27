@@ -9,6 +9,8 @@ import sys
 def get_db_connection():
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
+    global number_of_connections
+    number_of_connections += 1
     return connection
 
 # Function to get a post using its ID
@@ -102,7 +104,7 @@ def metrics():
 
     print(total_connections)
     response = app.response_class(
-            response=json.dumps({"db_connection_count":1,"post_count":total_connections[0][0]}),
+            response=json.dumps({"db_connection_count":number_of_connections,"post_count":total_connections[0][0]}),
             status=200,
             mimetype='application/json'
     )
@@ -120,5 +122,5 @@ if __name__ == "__main__":
 
     logger.addHandler(h1)
     logger.addHandler(h2)
-
+    number_of_connections =0
     app.run(host='0.0.0.0', port='3111')
